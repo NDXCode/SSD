@@ -1,0 +1,44 @@
+﻿<Window x:Class="SSD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SSD"
+        mc:Ignorable="d"
+        Title="SSD - Specs for Storage Devices" Height="250" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button 
+            x:Name="ScanDevicesButton" 
+            Content="Scan Devices" 
+            Click="ScanDevicesButton_Click"
+            Margin="10"
+            Padding="10,5"/>
+
+        <DataGrid 
+            x:Name="DeviceDataGrid" 
+            Grid.Row="1" 
+            Margin="10,10,10,20"
+            IsReadOnly="True"
+            AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Device" Binding="{Binding Device}" Width="*"/>
+                <DataGridTextColumn Header="Model" Binding="{Binding DeviceName}" Width="*"/>
+                <DataGridTextColumn Header="Health" Binding="{Binding HealthCondition}" Width="*"/>
+                <DataGridTextColumn Header="Temp (°C)" Binding="{Binding Temperature}" Width="*"/>
+                <DataGridTextColumn Header="Power-On Hours" Binding="{Binding PowerOnHours}" Width="*"/>
+                <DataGridTextColumn Header="Start/Stop Count" Binding="{Binding StartStopCount}" Width="*"/>
+                <DataGridTextColumn Header="HWID" Binding="{Binding HardwareId}" Width="*"/>
+                <DataGridTextColumn Header="Health %" Binding="{Binding HealthPercentage}" Width="*"/>
+                <DataGridTextColumn Header="GB Written" Binding="{Binding LifetimeWrittenGigs}" Width="*"/>
+                <DataGridTextColumn Header="Bad Sectors" Binding="{Binding BadSectors}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Made by NDXCode" HorizontalAlignment="Left" Margin="5,0,0,0" Grid.Row="1" VerticalAlignment="Bottom"/>
+
+    </Grid>
+</Window>
